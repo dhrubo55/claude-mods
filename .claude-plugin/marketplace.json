@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "dhrubo55-mods",
+  "description": "Claude Code mods by dhrubo55.",
+  "owner": {
+    "name": "dhrubo55",
+    "url": "https://github.com/dhrubo55"
+  },
+  "plugins": [
+    {
+      "name": "auto-handoff",
+      "source": "./plugins/auto-handoff",
+      "description": "Writes a handoff by itself shortly before the prompt cache of an idle session expires, with its own handoff skill or the one you pick.",
+      "version": "0.1.0",
+      "author": { "name": "dhrubo55" }
+    }
+  ]
+}

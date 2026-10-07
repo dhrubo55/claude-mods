@@ -1,0 +1,55 @@
+{
+  "name": "auto-handoff",
+  "version": "0.1.0",
+  "description": "Writes a handoff by itself shortly before the prompt cache of an idle session expires, while the cache is still warm. Runs its own /auto-handoff:handoff skill and saves its answer under ~/.claude/handoffs, or another installed handoff command you pick once. Nothing in the handoff waits for approval: calls that would prompt are declined, never approved. A row above the prompt counts down; /auto-handoff opens a pane with the timeline, which command runs and why, and buttons to hand off now, pause, re-pick or copy the path.",
+  "author": {
+    "name": "dhrubo55",
+    "url": "https://github.com/dhrubo55"
+  },
+  "homepage": "https://github.com/dhrubo55/claude-mods",
+  "repository": "https://github.com/dhrubo55/claude-mods",
+  "license": "MIT",
+  "keywords": [
+    "handoff",
+    "prompt-cache",
+    "session"
+  ],
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "handoffCommand": {
+      "type": "string",
+      "title": "Handoff command",
+      "description": "The slash command that writes the handoff, without the slash, e.g. \"compound-engineering:ce-handoff\". Empty (default): the built-in /auto-handoff:handoff, and after your first turn auto-handoff offers any other installed handoff skill once. A command that is not installed falls back to the built-in.",
+      "required": false,
+      "default": ""
+    },
+    "cacheMinutes": {
+      "type": "number",
+      "title": "Cache lifetime (min)",
+      "description": "How long the prompt cache lives after a request: 60 on a Claude subscription, 5 on an API key or usage credits.",
+      "required": false,
+      "default": 60
+    },
+    "leadMinutes": {
+      "type": "number",
+      "title": "Hand off before expiry (min)",
+      "description": "Run the handoff this many minutes before the cache expires, so the handoff turn starts while the cache is warm.",
+      "required": false,
+      "default": 5
+    },
+    "enabled": {
+      "type": "boolean",
+      "title": "Auto handoff",
+      "description": "Off: auto-handoff never fires by itself; /auto-handoff now still runs it.",
+      "required": false,
+      "default": true
+    },
+    "showBand": {
+      "type": "boolean",
+      "title": "Band row above the prompt",
+      "description": "Show the handoff countdown in a row above the prompt. Off: no row; /auto-handoff still opens the pane, and the status line still counts down the last minute.",
+      "required": false,
+      "default": true
+    }
+  }
+}
