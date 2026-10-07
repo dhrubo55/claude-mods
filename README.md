@@ -180,14 +180,6 @@ Full list: [LIMITS.md](LIMITS.md).
 - **For other skills, the path is read from the handoff turn's answer.** It works with `/ce-handoff`. For skills that do not print it, the toast tells you to look in the answer.
 - **One handoff per idle period.** It arms again on your next turn.
 - **No question without a person at the prompt.** Under `claude -p` and the SDK it is not asked.
-- **Not yet checked in a live session:**
-  - the question appearing while the session is idle;
-  - a single timer after the option is saved and the plugin reloads;
-  - `$.command.run` starting the built-in skill;
-  - a handoff that fires while the question is open;
-  - the row's place when another plugin, such as prompt-cache-control, also draws above the prompt;
-  - the copy buttons in the desktop app;
-  - the declines and the save: see [LIMITS.md](LIMITS.md).
 
 ## Development
 
